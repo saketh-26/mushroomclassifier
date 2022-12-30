@@ -17,7 +17,7 @@ def main():
 
     @st.cache(persist = True)
     def load(): #DataLoading
-        data = pd.read_csv("Mushrooms.csv")
+        data = pd.read_csv("mushrooms.csv")
         label = LabelEncoder()
         for i in data.columns:
             data[i] = label.fit_transform(data[i])
