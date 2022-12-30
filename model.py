@@ -86,7 +86,7 @@ def main():
                                          ("Confusion Matrix","ROC Curve",
                                           "Precision-Recall Curve"))
         if st.sidebar.button("Classify",key="classify"):
-            st.subheader("Radom Forest Results")
+            st.subheader("Random Forest Results")
             model = RandomForestClassifier(n_estimators=n_estimators,
                                            max_depth = max_depth,
                                            bootstrap=bootstrap,n_jobs=-1)
