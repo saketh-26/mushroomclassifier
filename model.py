@@ -80,8 +80,6 @@ def main():
             "The number of trees in the Forest",100,5000,step=10,key="n_estimators")
         max_depth = st.sidebar.number_input("The maximum depth of the tree",
                                             1,20,step=1,key="max_depth")
-        bootstrap = st.sidebar.radio("Bootstrap samples when bulilding trees",
-                                     (True,False),key="bootstrap")
         metrics = st.sidebar.multiselect("What metrics to plot?",
                                          ("Confusion Matrix","ROC Curve",
                                           "Precision-Recall Curve"))
