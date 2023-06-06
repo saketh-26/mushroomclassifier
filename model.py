@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
+from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
 from sklearn.metrics import precision_score,recall_score
 
 st.set_option('deprecation.showPyplotGlobalUse',False)
@@ -38,9 +38,7 @@ def main():
     def plot_metrics(metrics_list):
         if "Confusion Matrix" in metrics_list:
             st.subheader("Confusion Matrix")
-            predictions = model.predict(x_test)
-            cm = confusion_matrix(y_test,predictions,labels=class_names)
-            ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=class_names)
+            ConfusionMatrixDisplay.from_estimator(model,x_test,y_test)
             st.pyplot()
         if "ROC Curve" in metrics_list:
             st.subheader("ROC Curve")
