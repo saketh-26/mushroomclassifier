@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay,plot_roc_curve,plot_precision_recall_curve
+from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
 from sklearn.metrics import precision_score,recall_score
 
 st.set_option('deprecation.showPyplotGlobalUse',False)
@@ -44,11 +44,11 @@ def main():
             st.pyplot()
         if "ROC Curve" in metrics_list:
             st.subheader("ROC Curve")
-            plot_roc_curve(model,x_test,y_test)
+            RocCurveDisplay.from_estimator(model,x_test,y_test)
             st.pyplot()
         if "Precision-Recall Curve" in metrics_list:
             st.subheader("Precision-Recall Curve")
-            plot_precision_recall_curve(model,x_test,y_test)
+            PrecisionRecallDisplay.from_estimator(model,x_test,y_test)
             st.pyplot()
     class_names = ['edible','poisonous']
 
